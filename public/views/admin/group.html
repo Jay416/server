@@ -1,0 +1,101 @@
+<div class="page-container" data-action="group">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th class="col-md-7">Заголовок</th>
+				<th class="col-md-2">Якорь</th>
+				<th class="col-md-2">Кол-во статей</th>
+				<th class="col-md-1"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>Главная</td>
+				<td>home</td>
+				<td>23</td>
+				<td>
+					<span class="article_btn-manager glyphicon glyphicon-pencil"
+						data-toggle="modal" data-target="#edit-group"></span>
+					<span class="article_btn-manager glyphicon glyphicon-trash"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>События</td>
+				<td>event</td>
+				<td>6</td>
+				<td>
+					<span class="article_btn-manager glyphicon glyphicon-pencil"
+						data-toggle="modal" data-target="#edit-group"></span>
+					<span class="article_btn-manager glyphicon glyphicon-trash"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>История</td>
+				<td>history</td>
+				<td>0</td>
+				<td>
+					<span class="article_btn-manager glyphicon glyphicon-pencil"
+						data-toggle="modal" data-target="#edit-group"></span>
+					<span class="article_btn-manager glyphicon glyphicon-trash"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>Будущее</td>
+				<td>future</td>
+				<td>0</td>
+				<td>
+					<span class="article_btn-manager glyphicon glyphicon-pencil"
+						data-toggle="modal" data-target="#edit-group"></span>
+					<span class="article_btn-manager glyphicon glyphicon-trash"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>Новости</td>
+				<td>new</td>
+				<td>5</td>
+				<td>
+					<span class="article_btn-manager glyphicon glyphicon-pencil"
+						data-toggle="modal" data-target="#edit-group"></span>
+					<span class="article_btn-manager glyphicon glyphicon-trash"></span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div id="edit-group" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Редактировать группу</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal" role="form">
+						<div class="form-group">
+							<label for="edit-group_title" class="col-md-2 control-label">Заголовок</label>
+							<div class="col-md-10">
+								<input type="password" class="form-control" id="edit-group_title">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="edit-group_anchor" class="col-md-2 control-label">Якорь</label>
+							<div class="col-md-10">
+								<input type="password" class="form-control" id="edit-group_anchor">
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+					<button type="button" class="btn btn-primary">Сохранить</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->

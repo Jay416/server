@@ -1,0 +1,81 @@
+<div class="page-container" data-action="article">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th class="col-md-2">Заголовок</th>
+				<th class="col-md-2">Группа</th>
+				<th class="col-md-6">Содержание</th>
+				<th class="col-md-1">Дата</th>
+				<th class="col-md-1"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="article in articles">
+				<td>{{$index + 1}}</td>
+				<td>{{article.title}}</td>
+				<td>{{article.group}}</td>
+				<td>{{article.description}}</td>
+				<td>{{article.modified}}</td>
+				<td>
+					<span class="article_btn-manager glyphicon glyphicon-pencil"
+						ng-click="showPopup($index)"></span>
+					<span class="article_btn-manager glyphicon glyphicon-trash" confirmed-click="delete($index)" 
+    						ng-confirm-click="Delete?""></span>
+					<span class="article_btn-manager glyphicon glyphicon-eye-{{article.visible && 'open' || 'close'}}"
+					ng-click="visible($index)"></span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div id="edit-text" class="modal fade" ng-class="{show: editArticle}">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" ng-click="editArticle=false">&times;</button>
+				<h4 class="modal-title">Редактировать статью</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" role="form">
+					<div class="form-group">
+						<label for="edit-group_title" class="col-md-2 control-label">Группа</label>
+						<div class="col-md-10">
+							<select class="form-control col-md-10">
+								<option>История</option>
+								<option>Главная</option>
+								<option>События</option>
+								<option>Содержание</option>
+								<option>Будушее</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="edit-group_anchor" class="col-md-2 control-label">Заголовок</label>
+						<div class="col-md-10">
+							<input type="text" class="form-control" id="edit-group_anchor" ng-model="editArticle.title">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="edit-group_anchor" class="col-md-2 control-label">Якорь</label>
+						<div class="col-md-10">
+							<input type="text" class="form-control" id="edit-group_anchor" ng-model="editArticle.anchor">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="edit-group_anchor" class="col-md-2 control-label" >Статья</label>
+						<div class="col-md-10">
+							<textarea rows="6" type="password" class="form-control" id="edit-group_anchor"
+								ng-model="editArticle.description"></textarea>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" ng-click="editArticle=false">Отмена</button>
+				<button type="button" class="btn btn-primary" ng-click="save()">Сохранить</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

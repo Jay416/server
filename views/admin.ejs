@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>[Admin]</title>
+	<link rel="stylesheet" href="stylesheets/bootstrap.css">
+	<link rel="stylesheet" href="stylesheets/style.css">
+</head>
+<body ng-controller="globalCtrl">
+	<div class="navbar navbar-default navbar-static-top">
+		<div class="navbar-brand">Dating Park</div>
+	</div>
+	<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-2">
+			<ul class="nav nav-sidebar">
+				<li ng-class="navClass('home')" class="page-link"><a href="#/home">Общие настройки</a></li>
+				<li ng-class="navClass('images')" class="page-link"><a href="#/images">Изображения</a></li>
+				<li ng-class="navClass('group')" class="page-link"><a href="#/group">Группы статей</a></li>
+				<li ng-class="navClass('articles')" class="page-link"><a href="#/articles">Все статьи</a></li>
+			</ul>
+		</div>
+		<div class="main col-md-10">
+			<din class="ng-view"></din>
+		</div>
+	</div>
+</div>
+	<script src="javascripts/lib/require.js"></script>
+	<script src="javascripts/main.js"></script>
+</body>
+</html>

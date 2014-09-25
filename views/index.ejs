@@ -1,11 +1,62 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome toto <%= title %></p>
-  </body>
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form action="">
+		<p><input type="text" id="url" placeholder="Url">
+		<select name="" id="method">
+			<option disabled>Method</option>
+			<option value="GET">GET</option>
+			<option value="POST">POST</option>
+			<option value="PUT">PUT</option>
+			<option value="DELETE">DELETE</option>
+		</select>
+		<input type="button" value="Send" onclick="send(event)"></p>
+		<textarea name="" id="data" cols="32" rows="10" placeholder="JSON"></textarea>
+	</form>
+	<h1>API</h1>
+	<p><strong>/admin</strong> - админка</p>
+	<hr>
+	<p><strong>GET/articles</strong> - Получение списка статей</p>
+	<p><strong>POST/articles</strong> - Создание статьи</p>
+	<p><strong>GET/articles/{id}</strong> - Получение статьи</p>
+	<p><strong>PUT/articles/{id}</strong> - Изменение статьи</p>
+	<p><strong>DELETE/articles/{id}</strong> - Удаление статьи</p>
+	<hr>
+	<p><strong>GET/users</strong> - Получение списка пользователей</p>
+	<p><strong>POST/users</strong> - Создание пользователя</p>
+	<p><strong>GET/users/{id}</strong> - Получение пользователя</p>
+	<p><strong>POST/users/{id}</strong> - Изменение пользователя</p>
+	<p><strong>POST/users/{id}</strong> - Удаление пользователя</p>
+	
+	<script>
+		var $url = document.getElementById('url');
+		var $method = document.getElementById('method');
+		var $data = document.getElementById('data');
+		function send (e) {
+			var url = $url.value || '/';
+			var method = $method.value || 'POST';
+			var val = $data.value || '{}';
+
+			var xhr = new XMLHttpRequest()
+			xhr.onreadystatechange = function(e){
+				if(e.target.readyState != 4) return;
+				var status = e.target.status;
+				var response = e.target.responseText;
+				try{
+					console.log(status, JSON.parse(response || '{}'));
+				} catch (e) {
+					console.log('Error JSON', status , response);
+				}
+			}
+			xhr.open(method, url);
+			xhr.setRequestHeader('X-Requested-With','XMLHttpRequest');
+			xhr.setRequestHeader('Content-Type','application/json');
+			xhr.send(val);
+		}
+	</script>
+</body>
 </html>
